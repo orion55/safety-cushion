@@ -21,6 +21,21 @@ export function expensesReducer(
                 }
                 return item;
             });
+        case ExpensesActions.AddLastExpense.Name:
+            return state.map((item, idx) => {
+                if (idx === action.profileId) {
+                    return [
+                        ...item,
+                        {
+                            idx: item.length,
+                            name: '',
+                            nameDefault: '',
+                            value: 0,
+                        },
+                    ];
+                }
+                return item;
+            });
         default:
             return state;
     }

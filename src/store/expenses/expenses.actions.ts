@@ -7,4 +7,10 @@ export class SetExpense implements Action {
     constructor(public info: ExpenseData) {}
 }
 
-export type AllExpensesActions = SetExpense;
+export class AddLastExpense implements Action {
+    static readonly Name = '[Expenses] Add Last Expense';
+    readonly type = AddLastExpense.Name;
+    constructor(public profileId: number) {}
+}
+
+export type AllExpensesActions = SetExpense | AddLastExpense;
